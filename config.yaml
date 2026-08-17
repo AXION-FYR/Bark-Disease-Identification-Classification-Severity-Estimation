@@ -1,0 +1,51 @@
+# ============================================================
+# Cinnamon bark — Stage 1 preprocessing config
+# ============================================================
+
+paths:
+  # Root of the Roboflow COCO export.
+  # Expected layout (standard Roboflow):
+  #   data/raw/train/_annotations.coco.json  + *.jpg
+  #   data/raw/valid/_annotations.coco.json  + *.jpg
+  #   data/raw/test/_annotations.coco.json   + *.jpg
+  # A flat layout (one folder, one _annotations.coco.json) also works.
+  raw_root: D:/RESEARCH/implementation/dataset_coco
+  processed_root: data/processed
+  qc_root: outputs/qc
+
+# Splits to look for inside raw_root. Missing ones are skipped.
+splits: [train, valid, test]
+
+preprocess:
+  size: 512               # final square side (Stage 1 / U-Net input)
+  letterbox: true         # pad to square BEFORE resize (preserves aspect ratio)
+  pad_value: 0            # padding colour for image (0 = black); mask pads with 0
+  save_format: png        # png | npy   (png = smaller + viewable, npy = fastest load)
+  min_area_frac: 0.001    # drop polygons smaller than this fraction of the image
+  # Direction used to fix images whose EXIF was stripped and which are stored
+  # transposed relative to the annotation frame. Confirm with
+  # scripts/05_check_orientation.py before the full run.  cw | ccw
+  rotate_dir: cw
+  # Files to drop entirely (bad labels, duplicates). One per line.
+  exclude: []
+
+classes:
+  # Canonical order. Names are matched case-insensitively and
+  # ignoring spaces/underscores, so "Rough bark" == "rough_bark".
+  # Set to null to auto-detect from the COCO file instead.
+  order: ["Rough bark", "healthy bark", "stripecanker"]
+  # Roboflow often emits a dummy supercategory class (usually id 0)
+  # that has no annotations. It is dropped automatically.
+
+qc:
+  n_overlay_samples: 12   # how many overlays 03_verify_masks.py writes per split
+  seed: 42
+
+phash:
+  hash_size: 8
+  hamming_threshold: 10   # pairs at or below this distance are flagged near-duplicates
+
+exclude:
+    - "h (204)"
+    - "rb (118)"
+    - "rb (85)"

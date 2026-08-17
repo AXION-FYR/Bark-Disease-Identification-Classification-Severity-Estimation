@@ -1,0 +1,15 @@
+EXPERT GRADING — cinnamon bark disease treatment stage
+=======================================================
+
+Please assign each of the 40 trunk images in the 'images' folder to ONE treatment stage, based on how the bark looks:
+
+  P = Preventive        (healthy / trace — monitor only)
+  E = Early control     (limited disease — intervene early)
+  A = Active management (significant spread — active treatment)
+  S = Severe outbreak   (majority of bark affected — aggressive)
+
+Open grading_sheet.csv, and in the 'stage' column write P, E, A, or S
+for each image (match by the image_file name).
+
+IMPORTANT: please grade from the images ALONE. Do not look at any
+model output — the comparison is only valid if grading is independent.

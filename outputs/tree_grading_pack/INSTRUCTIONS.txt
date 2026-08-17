@@ -1,0 +1,22 @@
+TREE-LEVEL SEVERITY GRADING INSTRUCTIONS
+=========================================
+
+For each tree, open its contact sheet (contact_sheets/<tree>_contact_sheet.png).
+It shows ALL photos taken of that one tree, numbered, with NO model
+predictions or overlays -- please grade based on your own visual judgement only.
+
+For each disease you can see present anywhere on the tree (rough bark
+and/or stripe canker), assign ONE overall treatment stage for that
+disease considering the tree as a whole -- not per photo:
+
+  P = Preventive          (no/trace disease, monitor only)
+  E = Early control       (limited, localised disease)
+  A = Active management   (significant, spreading disease)
+  S = Severe outbreak     (majority affected / girdling risk)
+
+Fill in the 'expert_stage' column in tree_grading_sheet.csv with P/E/A/S.
+If a disease is NOT present on a tree at all, leave that row blank.
+Use 'expert_notes' for anything relevant (e.g. 'looks like it may be
+girdling on one side', 'hard to tell from photos, would want field visit').
+
+Please grade blind: do not look at any pipeline output before grading.

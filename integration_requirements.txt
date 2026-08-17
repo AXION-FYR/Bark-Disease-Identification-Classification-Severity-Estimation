@@ -1,0 +1,10 @@
+streamlit
+requests
+pillow
+
+# dev-only, for mock_leaf_server.py / mock_decision_server.py while
+# teammates are still developing Module 01 / Module 03
+fastapi
+uvicorn
+python-multipart
+pydantic

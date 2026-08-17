@@ -1,0 +1,31 @@
+# model checkpoints (large binary files)
+outputs/seg/*.pt
+outputs/cls/*.pt
+outputs/lesion/*.pt
+outputs/**/*.pt
+outputs/**/*.pth
+
+# generated data — regeneratable, large
+outputs/**/*.png
+outputs/**/*.csv
+outputs/**/*.json
+outputs/qc/
+outputs/figures/
+
+# raw dataset (too large, and likely has licensing/privacy concerns)
+data/processed/
+data/raw/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# streamlit / secrets
+.streamlit/secrets.toml
+config.py
+
+# OS files
+.DS_Store
+Thumbs.db
